@@ -1,10 +1,8 @@
 package streams.intermediate;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class IntermediateDemo {
@@ -35,7 +33,6 @@ public class IntermediateDemo {
 
         List<String> makeTitlesUppercase = booksList.stream().map(book -> book.title.toUpperCase()).toList();
         System.out.println(makeTitlesUppercase);
-
 
     }
 }
