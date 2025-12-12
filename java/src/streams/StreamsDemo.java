@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public class StreamsDemo {
     static void main() {
-        List<String> items = Arrays.asList("Apple","Mango");
+        List<String> items = Arrays.asList("Apple", "Mango");
         items.forEach(System.out::println);
 
         Stream<String> streamNew = items.stream();

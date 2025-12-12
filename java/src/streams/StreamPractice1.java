@@ -13,12 +13,12 @@ public class StreamPractice1 {
 
     static void main() {
 
-        List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9);
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
         System.out.println("Custom logic to collect even numbers:");
         List<Integer> evenNumbers = new ArrayList<>();
-        for(int number:numbers){
-            if((number % 2) == 0) evenNumbers.add(number);
+        for (int number : numbers) {
+            if ((number % 2) == 0) evenNumbers.add(number);
         }
         System.out.println(evenNumbers);
 
