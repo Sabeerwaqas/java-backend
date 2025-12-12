@@ -1,6 +1,7 @@
 package streams.intermediate;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -24,15 +25,25 @@ public class IntermediateDemo {
         );
 
         // Filtering books less than $20
-
+        System.out.println("=== Books priced less than $20 ===");
         Stream<BookDemo> lessPricedBooks = booksList.stream().filter(hasLessPrice);
         List<BookDemo> affordableBooks = lessPricedBooks.toList();
         affordableBooks.forEach(System.out::println);
 
         // Convert book titles to uppercase
-
+        System.out.println("\n=== Book titles in UPPERCASE ===");
         List<String> makeTitlesUppercase = booksList.stream().map(book -> book.title.toUpperCase()).toList();
-        System.out.println(makeTitlesUppercase);
+        makeTitlesUppercase.forEach(System.out::println);
+
+        // Books by publicationDate
+        System.out.println("\n=== Books published in 2020 or later ===");
+        List<BookDemo> dateWiseBooks = booksList.stream().filter(book -> book.publicationDate >= 2020).toList();
+        dateWiseBooks.forEach(System.out::println);
+
+        // Books by sorted order
+        System.out.println("\n=== Books sorted by publication year ===");
+        Stream<BookDemo> sortedBooks = booksList.stream().sorted(Comparator.comparing(bookDemo -> bookDemo.publicationDate));
+        sortedBooks.forEach(System.out::println);
 
     }
 }
