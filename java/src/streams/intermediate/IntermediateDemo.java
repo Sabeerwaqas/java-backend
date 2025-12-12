@@ -11,7 +11,7 @@ public class IntermediateDemo {
 
     static Predicate<BookDemo> hasLessPrice = (book) -> book.price < 20;
 
-   public static void main() {
+    public static void main() {
         List<BookDemo> booksList = Arrays.asList(
                 new BookDemo("The Silent Forest", 2015, 12.99, "Fiction"),
                 new BookDemo("Journey to Mars", 2020, 18.49, "Science Fiction"),
@@ -30,6 +30,12 @@ public class IntermediateDemo {
         Stream<BookDemo> lessPricedBooks = booksList.stream().filter(hasLessPrice);
         List<BookDemo> affordableBooks = lessPricedBooks.toList();
         affordableBooks.forEach(System.out::println);
+
+        // Convert book titles to uppercase
+
+        List<String> makeTitlesUppercase = booksList.stream().map(book -> book.title.toUpperCase()).toList();
+        System.out.println(makeTitlesUppercase);
+
 
     }
 }
