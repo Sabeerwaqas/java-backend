@@ -32,8 +32,8 @@ public class IntermediateDemo {
 
         // Convert book titles to uppercase
         System.out.println("\n=== Book titles in UPPERCASE ===");
-        List<String> makeTitlesUppercase = booksList.stream().map(book -> book.title.toUpperCase()).toList();
-        makeTitlesUppercase.forEach(System.out::println);
+        List<String> uppercaseTitles = booksList.stream().map(book -> book.title.toUpperCase()).toList();
+        uppercaseTitles.forEach(System.out::println);
 
         // Books by publicationDate
         System.out.println("\n=== Books published in 2020 or later ===");
