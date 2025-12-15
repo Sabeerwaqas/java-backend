@@ -7,7 +7,7 @@ public class BookModel {
     Number id;
     String bookName;
     String bookAuthor;
-    Double price;
+   public Double price;
     Date publishedYear;
 
     public BookModel(Number id, String bookName, String bookAuthor, Double price, Date publishedYear){
@@ -17,9 +17,6 @@ public class BookModel {
         this.price = price;
         this.publishedYear = publishedYear;
     }
-
-
-    public BookModel getBooks(){};
 
     @Override
     public String toString() {

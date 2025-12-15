@@ -16,7 +16,7 @@ public class BookDemo {
 
     @Override
     public String toString() {
-        return "BookDemo {" +
+        return "BookDemo { " +
                 "title='" + title + '\'' +
                 ", year=" + publicationDate +
                 ", price=" + price +
