@@ -18,6 +18,9 @@ public class BookModel {
         this.publishedYear = publishedYear;
     }
 
+
+    public BookModel getBooks(){};
+
     @Override
     public String toString() {
         return "BookModel{" +
