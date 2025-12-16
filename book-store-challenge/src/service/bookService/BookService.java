@@ -1,7 +1,6 @@
-package service;
+package service.bookService;
 
 import model.BookModel;
-import utils.BookList;
 
 import java.util.List;
 import java.util.function.Predicate;
