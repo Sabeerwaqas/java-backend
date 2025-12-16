@@ -8,7 +8,7 @@ public class BookModel {
     public Number id;
     public String bookName;
     public String bookAuthor;
-    public Double price;
+    private Double price;
     public LocalDate publishedYear;
 
     public BookModel(Number id, String bookName, String bookAuthor, Double price, LocalDate publishedYear) {
@@ -17,6 +17,10 @@ public class BookModel {
         this.bookAuthor = bookAuthor;
         this.price = price;
         this.publishedYear = publishedYear;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 
     @Override

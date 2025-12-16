@@ -10,6 +10,8 @@ public class Main {
 
    bookService.getDiscountedBooks();
    bookService.getBooksByPublishedYear();
+   bookService.getUpcomingBooks();
+   bookService.getBooksSortedByPrice();
 
     }
 
