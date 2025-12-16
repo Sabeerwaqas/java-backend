@@ -33,10 +33,13 @@ public class BookList {
                 new BookModel(18, "Physics for Everyone", "S. Hawking", 26.30, LocalDate.of(2015, 7, 3)),
                 new BookModel(19, "Creative Writing Basics", "J. Rowling", 14.20, LocalDate.of(2013, 12, 28)),
                 new BookModel(20, "Modern Web Development", "A. Cooper", 31.99, LocalDate.of(2022, 3, 17)),
-
-                // Books before 2000
                 new BookModel(21, "Random book 1", "J. Rowling", 14.20, LocalDate.of(1999, 1, 1)),
-                new BookModel(22, "Random book 2", "A. Cooper", 31.99, LocalDate.of(1999, 1, 1))
+                new BookModel(22, "Random book 2", "A. Cooper", 31.99, LocalDate.of(1999, 1, 1)),
+                new BookModel(23, "Coming Soon: Quantum Computing", "A. Einstein", 0.0, LocalDate.of(2025, 6, 1)),
+                new BookModel(24, "Coming Soon: The Mars Colony", "L. Thompson", 0.0, LocalDate.of(2025, 9, 15)),
+                new BookModel(25, "Coming Soon: AI Revolution", "A. Turing", 0.0, LocalDate.of(2026, 1, 10)),
+                new BookModel(26, "Coming Soon: Secrets of the Universe", "S. Hawking", 0.0, LocalDate.of(2026, 5, 5))
+
         );
     }
 }
