@@ -9,6 +9,7 @@ public class Main {
    bookService.getAllBooks();
 
    bookService.getDiscountedBooks();
+   bookService.getBooksByPublishedYear();
 
     }
 
