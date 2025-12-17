@@ -16,9 +16,9 @@ public class BookService {
     LocalDate specifiedDate = LocalDate.of(2000, 1, 1);
     Predicate<BookModel> isDiscounted = (BookModel book) -> book.getPrice() < 30;
     Predicate<BookModel> isPublished = book ->
-            book.publishedYear.isBefore(specifiedDate);
-    Predicate<BookModel> isUpcoming = (BookModel book) -> book.bookName.startsWith("Coming");
-    Predicate<BookModel> isRare = (BookModel book) -> book.bookName.length() >= 20;
+            book.getPublishedYear().isBefore(specifiedDate);
+    Predicate<BookModel> isUpcoming = (BookModel book) -> book.getBookName().startsWith("Coming");
+    Predicate<BookModel> isRare = (BookModel book) -> book.getBookName().length() >= 20;
 
     public void getAllBooks() {
         BookTable.print(books);
