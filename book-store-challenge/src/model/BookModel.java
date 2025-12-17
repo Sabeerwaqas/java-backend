@@ -1,21 +1,26 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class BookModel {
 
-    Number id;
-    String bookName;
-    String bookAuthor;
-   public Double price;
-    Date publishedYear;
+    public Number id;
+    public String bookName;
+    public String bookAuthor;
+    private Double price;
+    public LocalDate publishedYear;
 
-    public BookModel(Number id, String bookName, String bookAuthor, Double price, Date publishedYear){
+    public BookModel(Number id, String bookName, String bookAuthor, Double price, LocalDate publishedYear) {
         this.id = id;
         this.bookName = bookName;
         this.bookAuthor = bookAuthor;
         this.price = price;
         this.publishedYear = publishedYear;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 
     @Override
