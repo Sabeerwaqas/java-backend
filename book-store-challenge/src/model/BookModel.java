@@ -11,6 +11,22 @@ public class BookModel {
     private Double price;
     public LocalDate publishedYear;
 
+    public Number getId() {
+        return id;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public String getBookAuthor() {
+        return bookAuthor;
+    }
+
+    public LocalDate getPublishedYear() {
+        return publishedYear;
+    }
+
     public BookModel(Number id, String bookName, String bookAuthor, Double price, LocalDate publishedYear) {
         this.id = id;
         this.bookName = bookName;

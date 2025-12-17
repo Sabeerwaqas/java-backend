@@ -21,42 +21,42 @@ public class BookService {
     Predicate<BookModel> isRare = (BookModel book) -> book.bookName.length() >= 20;
 
     public void getAllBooks() {
-        books.forEach(System.out::println);
+        BookTable.print(books);
     }
 
     public void getDiscountedBooks() {
         System.out.println("-----> Discounted Books <-----");
         Stream<BookModel> booksStream = books.stream();
         List<BookModel> booksIntermediateStream = booksStream.filter(isDiscounted).toList();
-        booksIntermediateStream.forEach(System.out::println);
+        BookTable.print(booksIntermediateStream);
     }
 
     public void getBooksByPublishedYear() {
         System.out.println("-----> Books Before Published Year 2000 <-----");
         Stream<BookModel> booksByPublishedYear = books.stream();
         List<BookModel> filteredBooks = booksByPublishedYear.filter(isPublished).toList();
-        filteredBooks.forEach(System.out::println);
+        BookTable.print(filteredBooks);
     }
 
-    public void getUpcomingBooks(){
+    public void getUpcomingBooks() {
         System.out.println("-----> Upcoming Books <-----");
         Stream<BookModel> booksStream = books.stream();
         List<BookModel> upcomingBooks = booksStream.filter(isUpcoming).toList();
-        upcomingBooks.forEach(System.out::println);
+        BookTable.print(upcomingBooks);
     }
 
-    public void getBooksSortedByPrice(){
+    public void getBooksSortedByPrice() {
         System.out.println("-----> Sorted Books By Price <-----");
         Stream<BookModel> booksStream = books.stream();
         List<BookModel> sortedBooks = booksStream.sorted(Comparator.comparingDouble(BookModel::getPrice)).toList();
-        sortedBooks.forEach(System.out::println);
+        BookTable.print(sortedBooks);
     }
 
-    public void getRareBooks(){
+    public void getRareBooks() {
         System.out.println("-----> Rare Books <-----");
         Stream<BookModel> booksStream = books.stream();
         List<BookModel> rareBooks = booksStream.filter(isRare).toList();
-        rareBooks.forEach(System.out::println);
+        BookTable.print(rareBooks);
     }
 
 }
