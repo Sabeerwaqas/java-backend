@@ -18,6 +18,7 @@ public class BookService {
     Predicate<BookModel> isPublished = book ->
             book.publishedYear.isBefore(specifiedDate);
     Predicate<BookModel> isUpcoming = (BookModel book) -> book.bookName.startsWith("Coming");
+    Predicate<BookModel> isRare = (BookModel book) -> book.bookName.length() >= 20;
 
     public void getAllBooks() {
         books.forEach(System.out::println);
@@ -49,6 +50,13 @@ public class BookService {
         Stream<BookModel> booksStream = books.stream();
         List<BookModel> sortedBooks = booksStream.sorted(Comparator.comparingDouble(BookModel::getPrice)).toList();
         sortedBooks.forEach(System.out::println);
+    }
+
+    public void getRareBooks(){
+        System.out.println("-----> Rare Books <-----");
+        Stream<BookModel> booksStream = books.stream();
+        List<BookModel> rareBooks = booksStream.filter(isRare).toList();
+        rareBooks.forEach(System.out::println);
     }
 
 }

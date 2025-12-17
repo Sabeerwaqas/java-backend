@@ -5,14 +5,13 @@ import service.bookService.BookService;
 public class Main {
     static void main() {
 
-   BookService bookService = new BookService();
-   bookService.getAllBooks();
-
-   bookService.getDiscountedBooks();
-   bookService.getBooksByPublishedYear();
-   bookService.getUpcomingBooks();
-   bookService.getBooksSortedByPrice();
-
+        BookService bookService = new BookService();
+        bookService.getAllBooks();
+        bookService.getDiscountedBooks();
+        bookService.getBooksByPublishedYear();
+        bookService.getUpcomingBooks();
+        bookService.getBooksSortedByPrice();
+        bookService.getRareBooks();
     }
 
 }
