@@ -17,7 +17,7 @@ public class BookService {
     Predicate<BookModel> isDiscounted = (BookModel book) -> book.getPrice() < 30;
     Predicate<BookModel> isPublished = book ->
             book.getPublishedYear().isBefore(specifiedDate);
-    Predicate<BookModel> isUpcoming = (BookModel book) -> book.getBookName().startsWith("Coming");
+    Predicate<BookModel> isUpcoming = (BookModel book) -> book.getBookName().endsWith("(Coming Soon)");
     Predicate<BookModel> isRare = (BookModel book) -> book.getBookName().length() >= 20;
 
     public void getAllBooks() {

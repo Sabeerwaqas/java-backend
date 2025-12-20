@@ -35,10 +35,10 @@ public class BookList {
                 new BookModel(20, "Modern Web Development", "A. Cooper", 31.99, LocalDate.of(2022, 3, 17)),
                 new BookModel(21, "Random book 1", "J. Rowling", 14.20, LocalDate.of(1999, 1, 1)),
                 new BookModel(22, "Random book 2", "A. Cooper", 31.99, LocalDate.of(1999, 1, 1)),
-                new BookModel(23, "Coming Soon: Quantum Computing", "A. Einstein", 0.0, LocalDate.of(2025, 6, 1)),
-                new BookModel(24, "Coming Soon: The Mars Colony", "L. Thompson", 0.0, LocalDate.of(2025, 9, 15)),
-                new BookModel(25, "Coming Soon: AI Revolution", "A. Turing", 0.0, LocalDate.of(2026, 1, 10)),
-                new BookModel(26, "Coming Soon: Secrets of the Universe", "S. Hawking", 0.0, LocalDate.of(2026, 5, 5))
+                new BookModel(23, "Quantum Computing (Coming Soon)", "A. Einstein", 0.0, LocalDate.of(2025, 6, 1)),
+                new BookModel(24, "The Mars Colony (Coming Soon)", "L. Thompson", 0.0, LocalDate.of(2025, 9, 15)),
+                new BookModel(25, "AI Revolution (Coming Soon)" , "A. Turing", 0.0, LocalDate.of(2026, 1, 10)),
+                new BookModel(26, "Secrets of the Universe (Coming Soon)", "S. Hawking", 0.0, LocalDate.of(2026, 5, 5))
 
         );
     }
