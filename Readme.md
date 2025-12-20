@@ -3,6 +3,21 @@
 A Java-based project demonstrating how to manage and process a bookstore inventory using **Java Streams**, **Predicates**, and **Comparator**. The project focuses on filtering, sorting, and categorizing books in a clean and readable way.
 
 ---
+## 📂 Book Store Directory Structure
+```declarative
+book-store-challenge/
+└── src/
+├── app/
+│   └── Main.java
+├── model/
+│   └── BookModel.java
+├── service/
+│   └── bookService/
+│       ├── BookService.java
+│       └── BookTable.java
+└── utils/
+└── BookList.java
+```
 
 ## 📖 Overview
 
