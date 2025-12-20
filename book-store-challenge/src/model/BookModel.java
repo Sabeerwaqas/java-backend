@@ -5,11 +5,27 @@ import java.util.Date;
 
 public class BookModel {
 
-    public Number id;
-    public String bookName;
-    public String bookAuthor;
-    private Double price;
-    public LocalDate publishedYear;
+    private Number id;
+    private String bookName;
+    private String bookAuthor;
+    private final Double price;
+    private LocalDate publishedYear;
+
+    public Number getId() {
+        return id;
+    }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public String getBookAuthor() {
+        return bookAuthor;
+    }
+
+    public LocalDate getPublishedYear() {
+        return publishedYear;
+    }
 
     public BookModel(Number id, String bookName, String bookAuthor, Double price, LocalDate publishedYear) {
         this.id = id;
