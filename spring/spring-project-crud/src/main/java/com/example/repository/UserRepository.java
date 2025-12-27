@@ -1,7 +1,7 @@
-package repository;
+package com.example.repository;
 
 
-import db.DatabaseConnection;
+import com.example.db.DatabaseConnection;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
