@@ -1,5 +1,8 @@
 package com.demo.first.app;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -13,26 +16,35 @@ public class UserController {
     private Map<Integer, User> userDb = new HashMap<>();
 
     @PostMapping
-    public String createUser(@RequestBody User user){
+    public ResponseEntity<String> createUser(@RequestBody User user) {
         userDb.putIfAbsent(user.getId(), user);
-        return "User Created";
+        return ResponseEntity.status(HttpStatus.CREATED).body("User Created");
     }
 
     @PutMapping
-    public String updateUser(@RequestBody User user){
-        if(userDb.containsKey(user.getId())){
-            userDb.put(user.getId(), user);
+    public ResponseEntity<String> updateUser(@RequestBody User user) {
+
+        if (!userDb.containsKey(user.getId())) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
-        return "User Updated Successfully!";
+
+        userDb.put(user.getId(), user);
+        return ResponseEntity.status(HttpStatus.CREATED).body("User Updated Successfully!");
+
     }
 
     @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable int id){
+    public ResponseEntity<String> deleteUser(@PathVariable int id) {
+
+        if (!userDb.containsKey(id)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
+        }
+
         userDb.remove(id);
-        return "User deleted successfully";
+        return ResponseEntity.status(HttpStatus.CREATED).body("User deleted successfully");
     }
 
-    public List<User> getUsers(){
+    public List<User> getUsers() {
         return new ArrayList<>(userDb.values());
     }
 }
