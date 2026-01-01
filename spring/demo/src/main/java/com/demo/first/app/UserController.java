@@ -57,4 +57,11 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body(userDb.get(id));
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<List<User>>  searchUser(@RequestParam String name){
+        List<User> filteredUser = userDb.values().stream()
+                .filter(n -> n.getName().equalsIgnoreCase(name)).toList();
+        return ResponseEntity.status(HttpStatus.CREATED).body(filteredUser);
+    }
+
 }
