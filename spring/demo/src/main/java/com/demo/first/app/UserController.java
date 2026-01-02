@@ -44,7 +44,24 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.CREATED).body("User deleted successfully");
     }
 
+    @GetMapping
     public List<User> getUsers() {
         return new ArrayList<>(userDb.values());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUser(@PathVariable int id){
+        if(!userDb.containsKey(id)){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.status(HttpStatus.CREATED).body(userDb.get(id));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<User>>  searchUser(@RequestParam String name){
+        List<User> filteredUser = userDb.values().stream()
+                .filter(n -> n.getName().equalsIgnoreCase(name)).toList();
+        return ResponseEntity.status(HttpStatus.CREATED).body(filteredUser);
+    }
+
 }
