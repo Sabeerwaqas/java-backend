@@ -1,67 +1,63 @@
 package com.demo.first.app;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private Map<Integer, User> userDb = new HashMap<>();
+
+    private final UserService userService;
+
+    // Constructor injection
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping
     public ResponseEntity<String> createUser(@RequestBody User user) {
-        userDb.putIfAbsent(user.getId(), user);
-        return ResponseEntity.status(HttpStatus.CREATED).body("User Created");
+        userService.createUser(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body("User created successfully");
     }
 
     @PutMapping
     public ResponseEntity<String> updateUser(@RequestBody User user) {
-
-        if (!userDb.containsKey(user.getId())) {
+        User updatedUser = userService.updateUser(user);
+        if (updatedUser == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
-
-        userDb.put(user.getId(), user);
-        return ResponseEntity.status(HttpStatus.CREATED).body("User Updated Successfully!");
-
+        return ResponseEntity.ok("User updated successfully");
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable int id) {
-
-        if (!userDb.containsKey(id)) {
+        boolean deleted = userService.deleteUser(id);
+        if (!deleted) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("User not found");
         }
-
-        userDb.remove(id);
-        return ResponseEntity.status(HttpStatus.CREATED).body("User deleted successfully");
+        return ResponseEntity.ok("User deleted successfully");
     }
 
     @GetMapping
-    public List<User> getUsers() {
-        return new ArrayList<>(userDb.values());
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable int id){
-        if(!userDb.containsKey(id)){
+    public ResponseEntity<User> getUserById(@PathVariable int id) {
+        User user = userService.getUserById(id);
+        if (user == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        return ResponseEntity.status(HttpStatus.CREATED).body(userDb.get(id));
+        return ResponseEntity.ok(user);
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<User>>  searchUser(@RequestParam String name){
-        List<User> filteredUser = userDb.values().stream()
-                .filter(n -> n.getName().equalsIgnoreCase(name)).toList();
-        return ResponseEntity.status(HttpStatus.CREATED).body(filteredUser);
+    public ResponseEntity<List<User>> searchUser(@RequestParam String name) {
+        List<User> users = userService.searchUsersByName(name);
+        return ResponseEntity.ok(users);
     }
-
 }
