@@ -1,10 +1,14 @@
-package com.demo.first.app;
+package com.demo.first.app.controller;
 
+import com.demo.first.app.service.UserService;
+import com.demo.first.app.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/user")
@@ -60,4 +64,12 @@ public class UserController {
         List<User> users = userService.searchUsersByName(name);
         return ResponseEntity.ok(users);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, Object>> handleIllegalArgumentException(IllegalArgumentException exception){
+        Map<String,Object> errorResponse = new HashMap<>();
+        errorResponse.put("message", exception.getMessage());
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
 }
