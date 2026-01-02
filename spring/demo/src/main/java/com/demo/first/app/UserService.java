@@ -17,7 +17,7 @@ public class UserService {
 
     public User updateUser(User user) {
         if (!userDb.containsKey(user.getId())) {
-            return null;
+            throw new IllegalArgumentException("User with id: " + user.getId() + " not found");
         }
         userDb.put(user.getId(), user);
         return user;
