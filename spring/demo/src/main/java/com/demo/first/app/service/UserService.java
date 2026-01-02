@@ -1,5 +1,6 @@
 package com.demo.first.app.service;
 
+import com.demo.first.app.exception.UserNotFoundException;
 import com.demo.first.app.model.User;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class UserService {
 
     public User updateUser(User user) {
         if (!userDb.containsKey(user.getId())) {
-            throw new IllegalArgumentException("User with id: " + user.getId() + " not found");
+            throw new UserNotFoundException("User with id: " + user.getId() + " not found");
         }
         userDb.put(user.getId(), user);
         return user;
